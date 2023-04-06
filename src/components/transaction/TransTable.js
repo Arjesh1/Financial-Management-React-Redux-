@@ -1,11 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, Table } from "react-bootstrap";
-
-//1. fetch all transaction from the database
-//2. put all the trans to the redux store
-//3. get all the trans from the redux store into the table and display
+import { useDispatch, useSelector } from "react-redux";
+import {
+  deletTranAction,
+  getTransAction,
+} from "../../pages/dashboard/transactionAction";
 
 export const TransTable = () => {
+  const dispatch = useDispatch();
+  const { trans } = useSelector((state) => state.transaction);
+  const { user } = useSelector((state) => state.user);
+
+  useEffect(() => {
+    !trans.length && dispatch(getTransAction(user.uid));
+  }, [trans.length, dispatch, user]);
+
+  const handleOnDelete = (id) => {
+    if (window.confirm("Are you sure you want to delete this?")) {
+      dispatch(deletTranAction(id, user.uid));
+    }
+  };
+
+  const total = trans.reduce((acc, item) => {
+    return item.type === "income" ? acc + +item.amount : acc - +item.amount;
+  }, 0);
+
   return (
     <div className="mt-5">
       <Table striped bordered hover>
@@ -13,23 +32,44 @@ export const TransTable = () => {
           <tr>
             <th>#</th>
             <th>Name</th>
-            <th>Amount</th>
             <th>Date</th>
+            <th>Income</th>
+            <th>Expenses</th>
             <th>Deleted</th>
           </tr>
         </thead>
 
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>gkjhlkj</td>
-            <td>kjh</td>
-            <td>lkhjl</td>
-            <td>
-              <Button variant="danger">
-                <i className="fa-sharp fa-solid fa-trash"></i>
-              </Button>
-            </td>
+          {trans.map((item, i) => (
+            <tr>
+              <td>{i + 1}</td>
+              <td>{item.name}</td>
+              <td>{item.date}</td>
+              {item.type === "income" ? (
+                <>
+                  <td className="text-success fw-bold">{item.amount}</td>
+                  <td></td>
+                </>
+              ) : (
+                <>
+                  <td></td>
+                  <td className="text-danger fw-bold">{item.amount}</td>
+                </>
+              )}
+
+              <td>
+                <Button
+                  variant="danger"
+                  onClick={() => handleOnDelete(item.id)}
+                >
+                  <i className="fa-sharp fa-solid fa-trash"></i>
+                </Button>
+              </td>
+            </tr>
+          ))}
+          <tr className="fw-bold bg-success-subtle">
+            <td className="bg-info" colSpan={4}>Total Balance</td>
+            <td className="bg-info text-center"colSpan={2}>{total}</td>
           </tr>
         </tbody>
       </Table>

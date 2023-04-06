@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Col, Row, Form, Button } from "react-bootstrap";
 import { CustomInput } from "../custom-input/CustomInput";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addTransactionAction } from "../../pages/dashboard/transactionAction";
 
 export const TransForm = () => {
+  const dispatch = useDispatch()
   const [dt, setDt] = useState({});
-  const {user} = useSelector(state =>state.user)
+  const {user} = useSelector((state) =>state.user)
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -18,7 +20,8 @@ export const TransForm = () => {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    console.log({...dt, userId: user.uid});
+    dispatch(addTransactionAction({...dt, userId: user.uid}))
+    
   };
 
   return (
@@ -34,7 +37,7 @@ export const TransForm = () => {
               </Form.Select>
             </Form.Group>
           </Col>
-          <Col md="4">
+          <Col md="3">
             <CustomInput
               onChange={handleOnChange}
               name="name"
@@ -42,7 +45,7 @@ export const TransForm = () => {
               required={true}
             />
           </Col>
-          <Col md="1">
+          <Col md="2">
             <CustomInput
               onChange={handleOnChange}
               name="amount"
@@ -61,8 +64,8 @@ export const TransForm = () => {
             />
           </Col>
           <Col md="2">
-            <Form.Group className="mb-3 d-grid">
-              <Button variant="warning" type="submit">
+            <Form.Group className="mb-3 d-grid ">
+              <Button variant="warning fw-bold" type="submit">
                 Add{" "}
               </Button>
             </Form.Group>

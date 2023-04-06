@@ -4,7 +4,7 @@ import { doc, getDoc } from "firebase/firestore"
 import { db, auth } from "../../firebase/firebase-config"
 import { setUser } from "./userSlice"
 
-export const autoLogin = uid => async (dispatch) =>{
+export const autoLogin = (uid) => async (dispatch) =>{
     try {
 
         
@@ -23,7 +23,7 @@ export const autoLogin = uid => async (dispatch) =>{
 }
 
 
-export const loginUser =  ({email, password})=> async dispatch =>{
+export const loginUser =  ({email, password})=> async (dispatch) =>{
     try{
         const {user} = await signInWithEmailAndPassword(
             auth, 
