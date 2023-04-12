@@ -15,6 +15,7 @@ import { setTrans } from "./transactionSlice";
 // pull data from firebase and add to the reduxt store for the specific user basd on the uid
 export const getTransAction = (userId) => async (dispatch) => {
   try {
+
     const q = query(
       collection(db, "transaction"),
       where("userId", "==", userId)
@@ -25,7 +26,7 @@ export const getTransAction = (userId) => async (dispatch) => {
     const trans = [];
     docs.forEach((item) => {
       trans.push({ ...item.data(), id: item.id });
-      console.log(trans);
+      
     });
 
     dispatch(setTrans(trans));

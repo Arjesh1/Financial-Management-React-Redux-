@@ -13,6 +13,7 @@ const Login = () => {
   const {user} = useSelector(state => state.user)
 
   useEffect(()=>{
+   
     user?.uid && navigate("/dashboard")
   },[user?.uid, navigate])
 

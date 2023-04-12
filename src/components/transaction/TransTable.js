@@ -12,8 +12,9 @@ export const TransTable = () => {
   const { user } = useSelector((state) => state.user);
 
   useEffect(() => {
-    !trans.length && dispatch(getTransAction(user.uid));
-  }, [trans.length, dispatch, user]);
+    // !trans.length && 
+    user.uid && dispatch(getTransAction(user.uid));
+  }, [dispatch, user.uid]);
 
   const handleOnDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this?")) {

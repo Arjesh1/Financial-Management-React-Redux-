@@ -7,7 +7,7 @@ import { setUser } from "./userSlice"
 export const autoLogin = (uid) => async (dispatch) =>{
     try {
 
-        
+        if (!uid) return;
 
             const userResp = await getDoc(doc (db, "users" , uid ))
 

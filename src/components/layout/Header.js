@@ -3,20 +3,28 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/firebase-config";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../../pages/user/userSlice";
+import { setTrans } from "../../pages/dashboard/transactionSlice";
 
 export const Header = () => {
+  const navigate = useNavigate()
 const dispatch = useDispatch()
 const {user} = useSelector((state)=> state.user)
-  const handleOnLogOut = () =>{
+  
+const handleOnLogOut = () =>{
     signOut(auth).then(()=>{
+      dispatch(setTrans([]))
       dispatch(setUser({}))
+      //clear trans state.
       toast.success("User loged out")
-    })
+    
+      navigate("/")
+      
+    }).catch(err=>console.log(err))
 
   }
   return (
@@ -30,7 +38,7 @@ const {user} = useSelector((state)=> state.user)
           <Nav className="ms-auto fs-4">
             {user?.uid ? (
               <>
-              <Link to="/" className="nav-link" onClick={handleOnLogOut}>
+              <Link to="#" className="nav-link" onClick={handleOnLogOut}>
                 <i
                   className="fa-solid fa-right-from-bracket"
                   title="Log Out" 
