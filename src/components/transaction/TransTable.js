@@ -11,6 +11,7 @@ export const TransTable = () => {
   const { trans } = useSelector((state) => state.transaction);
   const { user } = useSelector((state) => state.user);
 
+
   useEffect(() => {
     // !trans.length && 
     user.uid && dispatch(getTransAction(user.uid));

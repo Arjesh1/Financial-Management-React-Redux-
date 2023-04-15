@@ -111,7 +111,7 @@ const Register = () => {
   return (
     <div className="form-container">
       <Form onSubmit={handleOnSubmit} className="border p-5 rounded shadow-lg">
-        <h3>Join Our Community</h3>
+        <h3 className="text-center">Join Our Community</h3>
         <hr />
 
         {inputFields.map((item, i) => (

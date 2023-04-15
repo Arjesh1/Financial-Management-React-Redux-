@@ -11,6 +11,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase/firebase-config";
 import { useDispatch } from "react-redux";
 import { autoLogin } from "./pages/user/userAction";
+import UserDetails from "./pages/user/UserDetails";
 
 function App() {
 
@@ -31,6 +32,14 @@ function App() {
             element={
               <PrivateRoute>
                 <Dashboard />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="user"
+            element={
+              <PrivateRoute>
+                <UserDetails />
               </PrivateRoute>
             }
           />
