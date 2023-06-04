@@ -1,5 +1,5 @@
 .main {
-  min-height: 76vh;
+  min-height: 73.5vh;
 }
 
 .form-container {
@@ -22,4 +22,12 @@
   .img_col{
     display: none;
   }
+}
+
+.register_con{
+  background-image: url(./assets/register.jpg) !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  
 }

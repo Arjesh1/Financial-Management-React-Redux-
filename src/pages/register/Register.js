@@ -7,6 +7,8 @@ import { toast } from "react-toastify";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../../firebase/firebase-config";
 import { doc, setDoc } from "firebase/firestore";
+import { Col, Row } from "react-bootstrap";
+
 
 
 const initialState = {
@@ -109,8 +111,10 @@ const Register = () => {
   ];
 
   return (
-    <div className="form-container">
-      <Form onSubmit={handleOnSubmit} className="border p-5 rounded shadow-lg">
+    <div className="container register_con pb-3 pt-3">
+      <Row>
+        <Col md={6}>
+          <Form onSubmit={handleOnSubmit} className="border p-5  rounded shadow-lg">
         <h3 className="text-center">Join Our Community</h3>
         <hr />
 
@@ -133,7 +137,9 @@ const Register = () => {
           Submit
         </Button>
         </div>
-      </Form>
+      </Form></Col>
+      </Row>
+      
     </div>
   );
 };

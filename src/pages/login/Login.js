@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { CustomInput } from "../../components/custom-input/CustomInput";
 import { loginUser } from "../user/userAction"
 import { useDispatch, useSelector } from "react-redux";
-import login from '../../assets/login.jpg'
+import login from '../../assets/login.png'
 
 
 const Login = () => {
