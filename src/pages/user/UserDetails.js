@@ -5,19 +5,24 @@ import { useSelector } from 'react-redux'
 const UserDetails = () => {
 
     const {fName, lName, email}  = useSelector((state) => state.user.user)
+    const { trans } = useSelector((state) => state.transaction);
+
+    const total = trans.reduce((acc, item) => {
+      return item.type === "income" ? acc + +item.amount : acc - +item.amount;
+    }, 0);
 
     
   return (
     
-<div className="container mt-5 px-4 shadow p-3 mb-5 bg-body-tertiary rounded">
-  <div className="row gx-5">
+<div className="container mt-5 px-4 shadow p-3 mb-5 bg-body-tertiary rounded user_cont align-self-center">
+  <div className="row gx-5 ">
 
-    <div className="col-4 mt-3">
+    <div className="col-md-6 mt-3">
      <div className="p-3 mt-5"><img src={user}/></div>
     </div>
 
 
-    <div className="col-6 mt-5">
+    <div className="col-md-6 mt-5">
 
         <div className="row gx-5 mt-5">
 
@@ -48,7 +53,7 @@ const UserDetails = () => {
     <div className="row gx-5 mt-4">
 
         <div className="col-6">
-                <div className="p-3 border border-info">Total balance <span></span></div>
+                <div className="p-3 border border-info">Total balance: $<span>{total}</span></div>
              </div>
     </div>
     </div>
