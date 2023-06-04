@@ -9,6 +9,17 @@
 }
 
 .logo{
-  height: 8rem;
-  width: 8rem;
+  height: 5.5rem;
+  width: 5.5rem;
+}
+
+.img_col{
+  height: 70vh;
+  
+}
+
+@media (0 <= width <=767px ){
+  .img_col{
+    display: none;
+  }
 }

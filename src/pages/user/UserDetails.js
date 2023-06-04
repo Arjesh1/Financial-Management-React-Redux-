@@ -48,7 +48,7 @@ const UserDetails = () => {
     <div className="row gx-5 mt-4">
 
         <div className="col-6">
-                <div className="p-3 border border-info">Total balance <span>$ 123</span></div>
+                <div className="p-3 border border-info">Total balance <span></span></div>
              </div>
     </div>
     </div>

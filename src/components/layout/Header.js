@@ -31,47 +31,38 @@ const handleOnLogOut = () =>{
   return (
     <Navbar bg="dark" variant="dark" expand="md">
       <Container>
-        <Navbar.Brand href="#home" className="text-success fw-bolder">
+        <Navbar.Brand href="/" className="text-success fw-bolder">
           <img src= {logo} className="logo"/>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto fs-4">
+        <Navbar.Collapse id="basic-navbar-nav ">
+          <Nav className="ms-auto ">
             {user?.uid ? (
-              <div className="d-flex gap-3">
+              <div className="d-flex gap-1 fs-4">
               <Link to="/dashboard" className="nav-link" >
-                <i
-                  className="fa-solid fa-gauge fa-xl text-info"
-                  title="Dashboard" 
-                ></i>
+                Dashboard
                 
               </Link>
 
               <Link to="/user" className="nav-link" >
-                <i
-                  className="fa-solid fa-user fa-xl text-info"
-                  title="User Details" 
-                ></i>
+                Profile
                 
               </Link>
 
               <Link to="#" className="nav-link" onClick={handleOnLogOut}>
-                <i
-                  className="fa-solid fa-right-from-bracket fa-xl text-info"
-                  title="Log Out" 
-                ></i>
+                Log Out
               </Link>
 
               
 
               </div>
             ) : (
-              <div className="d-flex gap-3">
+              <div className="d-flex gap-1 fs-4 ">
                 <Link to="/" className="nav-link">
-                  <i className="fa-solid fa-right-to-bracket fa-xl text-info" title="Login"> Login</i>
+                   Login
                 </Link>
                 <Link to="/register" className="nav-link">
-                  <i className="fa-solid fa-user-pen fa-xl text-info" title="Register"> Register</i>
+                 Register
                 </Link>
               </div>
             )}

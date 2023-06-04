@@ -96,7 +96,7 @@ const Register = () => {
       name: "password",
       placeholder: "*****",
       required: true,
-      value: frmDt.password,
+      
     },
     {
       label: "Confirm Password",
@@ -104,7 +104,7 @@ const Register = () => {
       name: "confirmPassword",
       placeholder: "*****",
       required: true,
-      value: frmDt.confirmPassword,
+      
     },
   ];
 
@@ -128,9 +128,11 @@ const Register = () => {
             )}
           </Form.Text>
         </div>
+        <div className="d-grid mt-3">
         <Button variant="primary" type="submit" disabled={error}>
           Submit
         </Button>
+        </div>
       </Form>
     </div>
   );
