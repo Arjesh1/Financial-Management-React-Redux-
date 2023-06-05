@@ -59,7 +59,8 @@ const Register = () => {
     const {user} = await pendingState
     console.log(user);
     if (user?.uid){
-      toast.success("User has been registered. You can login now.")
+      toast.success("User has been registered. Redirecting to dashboard.")
+      navigate("/dashboard")
 
       const userObj = {
         fName: frmDt.fName,

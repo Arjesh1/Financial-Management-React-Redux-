@@ -36,35 +36,35 @@ const handleOnLogOut = () =>{
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav ">
-          <Nav className="ms-auto ">
+          <Nav className="ms-auto  fs-4 ">
             {user?.uid ? (
-              <div className="d-flex gap-1 fs-4">
-              <Link to="/dashboard" className="nav-link" >
+              <>
+              <Nav.Link><Link to="/dashboard" className="nav-link" >
                 Dashboard
                 
-              </Link>
+              </Link></Nav.Link>
 
-              <Link to="/user" className="nav-link" >
+              <Nav.Link><Link to="/user" className="nav-link" >
                 Profile
                 
-              </Link>
+              </Link></Nav.Link>
 
-              <Link to="#" className="nav-link" onClick={handleOnLogOut}>
+              <Nav.Link><Link to="#" className="nav-link" onClick={handleOnLogOut}>
                 Log Out
-              </Link>
+              </Link></Nav.Link>
 
               
 
-              </div>
+              </>
             ) : (
-              <div className="d-flex gap-1 fs-4 ">
-                <Link to="/" className="nav-link">
+              <>
+                <Nav.Link><Link to="/" className="nav-link">
                    Login
-                </Link>
-                <Link to="/register" className="nav-link">
+                </Link></Nav.Link>
+                <Nav.Link><Link to="/register" className="nav-link">
                  Register
-                </Link>
-              </div>
+                </Link></Nav.Link>
+              </>
             )}
           </Nav>
         </Navbar.Collapse>
