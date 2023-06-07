@@ -28,53 +28,45 @@ export const TransTable = () => {
   }, 0);
 
   return (
-    <div className="mt-5">
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Date</th>
-            <th>Income</th>
-            <th>Expenses</th>
-            <th>Deleted</th>
-          </tr>
-        </thead>
+    <div className="">
+      {trans.map((item, i) => (
+        <div className="shadow-lg bg-body-tertiary rounded p-3 pt-1 pb-1 mb-2 d-flex justify-content-between fs-5 align-items-center">
+        <div className="d-flex justify-content-between gap-3 align-items-center">
+          <div>
+          {item.type === "income" ? (
+          <i class="fa-solid fa-coins fs-4 text-success"></i>
+          ):(
+            <i class="fa-solid fa-comments-dollar fs-4 text-danger"></i>
 
-        <tbody>
-          {trans.map((item, i) => (
-            <tr>
-              <td>{i + 1}</td>
-              <td>{item.name}</td>
-              <td>{item.date}</td>
-              {item.type === "income" ? (
-                <>
-                  <td className="text-success fw-bold">{item.amount}</td>
-                  <td></td>
-                </>
-              ) : (
-                <>
-                  <td></td>
-                  <td className="text-danger fw-bold">{item.amount}</td>
-                </>
-              )}
+          )}
+            
+            </div>
+          <div>
+            <p className="lh-1">{item.name}
+              <br/>
+              <span className="form-text fs-6">{item.date}</span>
+              </p>
+            
+            </div>
+          </div>
 
-              <td>
-                <Button
-                  variant="danger"
-                  onClick={() => handleOnDelete(item.id)}
+          <div className="">
+          <p className="d-flex justify-content-between align-items-center gap-1  ">${item.amount}
+              <br/>
+              <span className=""><Button
+                  variant="transparent"
+                  onClick={() => handleOnDelete(item)}
                 >
-                  <i className="fa-sharp fa-solid fa-trash"></i>
-                </Button>
-              </td>
-            </tr>
-          ))}
-          <tr className="fw-bold bg-success-subtle">
-            <td className="bg-info" colSpan={4}>Total Balance</td>
-            <td className="bg-info text-center"colSpan={2}>{total}</td>
-          </tr>
-        </tbody>
-      </Table>
+                  <i class="fa-regular fa-trash-can fa-lg text-danger fw-bold"></i>
+                </Button></span>
+              </p>
+          </div>
+
+
+      </div>
+
+      ))}
+    
     </div>
   );
 };

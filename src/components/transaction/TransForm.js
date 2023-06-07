@@ -26,7 +26,7 @@ export const TransForm = () => {
 
   return (
     <div className="">
-      <Form className="border rounded p-3 shadow-lg" onSubmit={handleOnSubmit}>
+      <Form className="border rounded p-3 shadow-lg m-auto" onSubmit={handleOnSubmit}>
         <Row>
           <Col md="2">
             <Form.Group className="mb-3 ">

@@ -11,6 +11,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../../firebase/firebase-config";
 import { setTrans } from "./transactionSlice";
+import { setModalShow } from "../../system/SystemSlice";
 
 // pull data from firebase and add to the reduxt store for the specific user basd on the uid
 export const getTransAction = (userId) => async (dispatch) => {
@@ -47,6 +48,7 @@ export const addTransactionAction = (data) => async (dispatch) => {
       toast.success("New transaction has been added");
       //get all transaction
       dispatch(getTransAction(data.userId));
+      dispatch(setModalShow(false))
     }
   } catch (error) {
     toast.error(error.message);
