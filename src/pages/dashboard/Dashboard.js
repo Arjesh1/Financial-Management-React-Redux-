@@ -166,7 +166,7 @@ dispatch(setModalShow(true))
 
 
 <Row className="d-flex felx-wrap gap-3 m-auto justify-content-center align-items-center ">
-  <Col lg={9} className="">
+  <Col xl={9} className="">
   <div className="container_box d-flex gap-5 justify-content-around flex-wrap">
 
 <div className=" shadow-lg p-5 pt-2 pb-2 bg-light rounded d-flex justify-content-between gap-4 align-items-center card_dashboard_top" >
@@ -230,7 +230,7 @@ dispatch(setModalShow(true))
 
 <Row className="d-flex felx-wrap gap-3 m-auto justify-content-center align-items-center ">
   {/* charts */}
-  <Col lg={9} className="align-self-start">
+  <Col xl={9} className="align-self-start">
 
   <div className=' '>
       
