@@ -50,7 +50,7 @@ export const TransForm = () => {
               onChange={handleOnChange}
               name="amount"
               type="number"
-              placeholder="100"
+              placeholder="$ 100"
               required
               min="1"
             />
@@ -60,6 +60,7 @@ export const TransForm = () => {
               onChange={handleOnChange}
               name="date"
               type="date"
+              placeholder='Date'
               required
             />
           </Col>

@@ -12,6 +12,8 @@ export const TransTable = () => {
   const { user } = useSelector((state) => state.user);
 
 
+
+
   useEffect(() => {
     // !trans.length && 
     user.uid && dispatch(getTransAction(user.uid));
@@ -20,6 +22,7 @@ export const TransTable = () => {
   const handleOnDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this?")) {
       dispatch(deletTranAction(id, user.uid));
+      console.log(id, user.uid);
     }
   };
 
@@ -42,7 +45,7 @@ export const TransTable = () => {
             
             </div>
           <div>
-            <p className="lh-1">{item.name}
+            <p className="lh-1 fs-6">{item.name}
               <br/>
               <span className="form-text fs-6">{item.date}</span>
               </p>
@@ -50,16 +53,17 @@ export const TransTable = () => {
             </div>
           </div>
 
-          <div className="">
-          <p className="d-flex justify-content-between align-items-center gap-1  ">${item.amount}
+          <div className="d-flex justify-content-end">
+          <p className="d-flex justify-content-end align-items-center gap-1 fs-6 fw-bold ">${item.amount}
               <br/>
+              
+              </p>
               <span className=""><Button
                   variant="transparent"
-                  onClick={() => handleOnDelete(item)}
+                  onClick={() => handleOnDelete(item.id)}
                 >
-                  <i class="fa-regular fa-trash-can fa-lg text-danger fw-bold"></i>
+                  <i class="fa-regular fa-trash-can fa-md text-danger "></i>
                 </Button></span>
-              </p>
           </div>
 
 

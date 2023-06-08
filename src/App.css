@@ -3,7 +3,7 @@
 
 .main {
   min-height: 73.5vh;
-  background-color: rgb(201, 220, 236);
+  background-color: rgb(255, 255, 255);
 }
 
 .form-container {
@@ -37,6 +37,11 @@
 }
 
 .user_cont{
-  height: 50vh;
+  min-height: 72vh;
   
+  
+}
+
+.card_dashboard_top{
+  min-width: 15rem !important;
 }

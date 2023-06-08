@@ -36,7 +36,7 @@ const handleOnLogOut = () =>{
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav ">
-          <Nav className="ms-auto  fs-4 ">
+          <Nav className="ms-auto  fs-5 ">
             {user?.uid ? (
               <>
               <Nav.Link><Link to="/dashboard" className="nav-link" >

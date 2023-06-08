@@ -1,6 +1,7 @@
 import React from 'react'
 import user from "../../assets/no-profile.jpg"
 import { useSelector } from 'react-redux'
+import { Col, Container, Form, Row } from 'react-bootstrap'
 
 const UserDetails = () => {
 
@@ -13,52 +14,51 @@ const UserDetails = () => {
 
     
   return (
+
+    <Container className='d-flex align-items-center justify-content-center user_cont  '>
     
-<div className="container mt-5 px-4 shadow p-3 mb-5 bg-body-tertiary rounded user_cont align-self-center">
-  <div className="row gx-5 ">
+<div className="container mt-5 px-4 pb-2 mb-4 shadow bg-body-tertiary rounded  align-self-center">
 
-    <div className="col-md-6 mt-3">
+  <Row>
+    <Col md={6}> <div className=" d-flex justify-content-center">
      <div className="p-3 mt-5"><img src={user}/></div>
-    </div>
+    </div></Col>
+    <Col className=' align-self-center'>
 
+    <Form>
+      <Row className="mb-3">
+        <Form.Group as={Col} controlId="formGridEmail">
+          <Form.Label>First Name</Form.Label>
+          <Form.Control value={fName} disabled={true} />
+        </Form.Group>
 
-    <div className="col-md-6 mt-5">
+        <Form.Group as={Col} controlId="formGridPassword">
+          <Form.Label>Last Name</Form.Label>
+          <Form.Control value={lName} disabled={true}/>
+        </Form.Group>
+      </Row>
 
-        <div className="row gx-5 mt-5">
+      <Form.Group className="mb-3" controlId="formGridAddress1">
+        <Form.Label>Email</Form.Label>
+        <Form.Control value={email} disabled={true} />
+      </Form.Group>
 
-            
+      <Row className="mb-3">
+        <Form.Group as={Col} controlId="formGridCity">
+          <Form.Label>Balance Amount</Form.Label>
+          <Form.Control disabled={true} value={"$" + " " + total}/>
+        </Form.Group>
+        </Row>
 
-             <div className="col">
-                <input className="p-3 border border-info" placeholder={fName} disabled/>
-             </div>
-
-             <div className="col">
-             <input className="p-3 border border-info" placeholder={lName} disabled/>
-             </div>
-    </div>
-
-    <div className="row gx-5 mt-4">
-
-    <div className="col">
-    <input className="p-3 border border-info" placeholder={email} disabled/>
-                
-             </div>
-             <div className="col">
-                <div className="p-3"></div>
-             </div>
-
-             
-    </div>
-
-    <div className="row gx-5 mt-4">
-
-        <div className="col-6">
-                <div className="p-3 border border-info">Total balance: $<span>{total}</span></div>
-             </div>
-    </div>
-    </div>
-  </div>
+      
+    </Form>
+    
+  
+</Col>
+  </Row>
+  
 </div>
+</Container>
       
     
   )
