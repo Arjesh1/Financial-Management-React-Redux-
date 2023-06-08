@@ -20,6 +20,7 @@ const UserDetails = () => {
 <div className="container mt-5 px-4 pb-2 mb-4 shadow bg-body-tertiary rounded  align-self-center">
 
   <Row>
+    <h1 className='text-center p-3 pt-5'>Profile</h1>
     <Col md={6}> <div className=" d-flex justify-content-center">
      <div className="p-3 mt-5"><img src={user}/></div>
     </div></Col>
